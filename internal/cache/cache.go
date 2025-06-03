@@ -83,7 +83,9 @@ func (c *Cache) Get(pkg *packages.Package, mode HashMode, key string, data any) 
 		return fmt.Errorf("failed to calculate package %s action id: %w", pkg.Name, err)
 	}
 
-	c.log.Warnf("[GLCI_DEBUG] ActionID %x, for package %s\n\n", actionID, pkg.PkgPath)
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] ActionID %x, for package %s\n\n", actionID, pkg.PkgPath)
+	}
 
 	cachedData, err := c.getBytes(actionID)
 	if err != nil {
@@ -108,7 +110,9 @@ func (c *Cache) buildKey(pkg *packages.Package, mode HashMode, key string) (cach
 			return actionID, fmt.Errorf("failed to build subkey: %w", subkeyErr)
 		}
 
-		c.log.Warnf("[GLCI_DEBUG] subkey %x, for package %s", subkey, pkg.PkgPath)
+		if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+			c.log.Warnf("[GLCI_DEBUG] subkey %x, for package %s", subkey, pkg.PkgPath)
+		}
 
 		return subkey, nil
 	})
@@ -120,7 +124,9 @@ func (c *Cache) pkgActionID(pkg *packages.Package, mode HashMode) (cache.ActionI
 		return cache.ActionID{}, fmt.Errorf("failed to get package hash: %w", err)
 	}
 
-	c.log.Warnf("[GLCI_DEBUG] packageHash %s, hash mode %d, for package %s", hash, mode, pkg.PkgPath)
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] packageHash %s, hash mode %d, for package %s", hash, mode, pkg.PkgPath)
+	}
 
 	key, err := cache.NewHash("action ID")
 	if err != nil {
@@ -131,7 +137,10 @@ func (c *Cache) pkgActionID(pkg *packages.Package, mode HashMode) (cache.ActionI
 	fmt.Fprintf(key, "pkghash %s\n", hash)
 
 	pkgKey := key.Sum()
-	c.log.Warnf("[GLCI_DEBUG] pkgKey %x, for package %s", pkgKey, pkg.PkgPath)
+
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] pkgKey %x, for package %s", pkgKey, pkg.PkgPath)
+	}
 
 	return pkgKey, nil
 }
@@ -141,7 +150,9 @@ func (c *Cache) packageHash(pkg *packages.Package, mode HashMode) (string, error
 	if found {
 		hashRes := results.(hashResults)
 		if result, ok := hashRes[mode]; ok {
-			c.log.Warnf("[GLCI_DEBUG] pkgHash found %x, for package %s", result, pkg.PkgPath)
+			if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+				c.log.Warnf("[GLCI_DEBUG] pkgHash found %x, for package %s", result, pkg.PkgPath)
+			}
 			return result, nil
 		}
 
@@ -172,11 +183,17 @@ func (c *Cache) computePkgHash(pkg *packages.Package) (hashResults, error) {
 		return nil, fmt.Errorf("failed to make a hash: %w", err)
 	}
 
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] computePkgHash 0 key %x, for package %s", key.Sum(), pkg.PkgPath)
+	}
+
 	hashRes := hashResults{}
 
 	fmt.Fprintf(key, "pkgpath %s\n", pkg.PkgPath)
 
-	c.log.Warnf("[GLCI_DEBUG] computePkgHash 1 key %x, for package %s", key.Sum(), pkg.PkgPath)
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] computePkgHash 1 key %x, for package %s", key.Sum(), pkg.PkgPath)
+	}
 
 	for _, f := range pkg.CompiledGoFiles {
 		h, fErr := c.fileHash(f)
@@ -187,12 +204,16 @@ func (c *Cache) computePkgHash(pkg *packages.Package) (hashResults, error) {
 		fmt.Fprintf(key, "file %s %x\n", f, h)
 	}
 
-	c.log.Warnf("[GLCI_DEBUG] computePkgHash 2 key %x, for package %s", key.Sum(), pkg.PkgPath)
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] computePkgHash 2 key %x, for package %s", key.Sum(), pkg.PkgPath)
+	}
 
 	curSum := key.Sum()
 	hashRes[HashModeNeedOnlySelf] = hex.EncodeToString(curSum[:])
 
-	c.log.Warnf("[GLCI_DEBUG] computePkgHash 3 curSum %x, for package %s", curSum, pkg.PkgPath)
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] computePkgHash 3 curSum %x, for package %s", curSum, pkg.PkgPath)
+	}
 
 	imps := slices.SortedFunc(maps.Values(pkg.Imports), func(a, b *packages.Package) int {
 		return strings.Compare(a.PkgPath, b.PkgPath)
@@ -205,7 +226,9 @@ func (c *Cache) computePkgHash(pkg *packages.Package) (hashResults, error) {
 	curSum = key.Sum()
 	hashRes[HashModeNeedDirectDeps] = hex.EncodeToString(curSum[:])
 
-	c.log.Warnf("[GLCI_DEBUG] computePkgHash 4 curSum %x, for package %s", curSum, pkg.PkgPath)
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] computePkgHash 4 curSum %x, for package %s", curSum, pkg.PkgPath)
+	}
 
 	if err := c.computeDepsHash(HashModeNeedAllDeps, imps, key); err != nil {
 		return nil, err
@@ -214,7 +237,9 @@ func (c *Cache) computePkgHash(pkg *packages.Package) (hashResults, error) {
 	curSum = key.Sum()
 	hashRes[HashModeNeedAllDeps] = hex.EncodeToString(curSum[:])
 
-	c.log.Warnf("[GLCI_DEBUG] computePkgHash 5 curSum %x, for package %s", curSum, pkg.PkgPath)
+	if pkg.PkgPath == "gitlab.ozon.ru/clickhouse/clickhouse-api" {
+		c.log.Warnf("[GLCI_DEBUG] computePkgHash 5 curSum %x, for package %s", curSum, pkg.PkgPath)
+	}
 
 	return hashRes, nil
 }

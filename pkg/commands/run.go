@@ -223,7 +223,7 @@ func (c *runCommand) preRunE(_ *cobra.Command, args []string) error {
 
 	c.contextBuilder = lint.NewContextBuilder(c.cfg, pkgLoader, pkgCache, guard)
 
-	if err = initHashSalt(c.buildInfo.Version, c.cfg); err != nil {
+	if err = initHashSalt(c.buildInfo.Version, c.cfg, c.log); err != nil {
 		return fmt.Errorf("failed to init hash salt: %w", err)
 	}
 
@@ -636,20 +636,30 @@ func formatMemory(memBytes uint64) string {
 
 // Related to cache.
 
-func initHashSalt(version string, cfg *config.Config) error {
+func initHashSalt(version string, cfg *config.Config, log logutils.Log) error {
+	log.Warnf("[GLCI_DEBUG] initHashSalt version %s", version)
+	log.Warnf("[GLCI_DEBUG] initHashSalt cfg %v", *cfg)
+
 	binSalt, err := computeBinarySalt(version)
 	if err != nil {
 		return fmt.Errorf("failed to calculate binary salt: %w", err)
 	}
+
+	log.Warnf("[GLCI_DEBUG] initHashSalt binSalt %x", binSalt)
 
 	configSalt, err := computeConfigSalt(cfg)
 	if err != nil {
 		return fmt.Errorf("failed to calculate config salt: %w", err)
 	}
 
+	log.Warnf("[GLCI_DEBUG] initHashSalt configSalt %x", configSalt)
+
 	b := bytes.NewBuffer(binSalt)
 	b.Write(configSalt)
 	cache.SetSalt(b)
+
+	log.Warnf("[GLCI_DEBUG] initHashSalt salt %x", b.Bytes())
+
 	return nil
 }
 
