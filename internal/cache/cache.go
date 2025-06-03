@@ -120,7 +120,7 @@ func (c *Cache) pkgActionID(pkg *packages.Package, mode HashMode) (cache.ActionI
 		return cache.ActionID{}, fmt.Errorf("failed to get package hash: %w", err)
 	}
 
-	c.log.Warnf("[GLCI_DEBUG] packageHash %s, for package %s", hash, pkg.PkgPath)
+	c.log.Warnf("[GLCI_DEBUG] packageHash %s, hash mode %d, for package %s", hash, mode, pkg.PkgPath)
 
 	key, err := cache.NewHash("action ID")
 	if err != nil {
@@ -141,6 +141,7 @@ func (c *Cache) packageHash(pkg *packages.Package, mode HashMode) (string, error
 	if found {
 		hashRes := results.(hashResults)
 		if result, ok := hashRes[mode]; ok {
+			c.log.Warnf("[GLCI_DEBUG] pkgHash found %x, for package %s", result, pkg.PkgPath)
 			return result, nil
 		}
 
@@ -175,6 +176,8 @@ func (c *Cache) computePkgHash(pkg *packages.Package) (hashResults, error) {
 
 	fmt.Fprintf(key, "pkgpath %s\n", pkg.PkgPath)
 
+	c.log.Warnf("[GLCI_DEBUG] computePkgHash 1 key %x, for package %s", key.Sum(), pkg.PkgPath)
+
 	for _, f := range pkg.CompiledGoFiles {
 		h, fErr := c.fileHash(f)
 		if fErr != nil {
@@ -184,8 +187,12 @@ func (c *Cache) computePkgHash(pkg *packages.Package) (hashResults, error) {
 		fmt.Fprintf(key, "file %s %x\n", f, h)
 	}
 
+	c.log.Warnf("[GLCI_DEBUG] computePkgHash 2 key %x, for package %s", key.Sum(), pkg.PkgPath)
+
 	curSum := key.Sum()
 	hashRes[HashModeNeedOnlySelf] = hex.EncodeToString(curSum[:])
+
+	c.log.Warnf("[GLCI_DEBUG] computePkgHash 3 curSum %x, for package %s", curSum, pkg.PkgPath)
 
 	imps := slices.SortedFunc(maps.Values(pkg.Imports), func(a, b *packages.Package) int {
 		return strings.Compare(a.PkgPath, b.PkgPath)
@@ -198,12 +205,16 @@ func (c *Cache) computePkgHash(pkg *packages.Package) (hashResults, error) {
 	curSum = key.Sum()
 	hashRes[HashModeNeedDirectDeps] = hex.EncodeToString(curSum[:])
 
+	c.log.Warnf("[GLCI_DEBUG] computePkgHash 4 curSum %x, for package %s", curSum, pkg.PkgPath)
+
 	if err := c.computeDepsHash(HashModeNeedAllDeps, imps, key); err != nil {
 		return nil, err
 	}
 
 	curSum = key.Sum()
 	hashRes[HashModeNeedAllDeps] = hex.EncodeToString(curSum[:])
+
+	c.log.Warnf("[GLCI_DEBUG] computePkgHash 5 curSum %x, for package %s", curSum, pkg.PkgPath)
 
 	return hashRes, nil
 }
