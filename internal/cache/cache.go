@@ -6,6 +6,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"log"
 	"maps"
 	"runtime"
 	"slices"
@@ -83,6 +84,8 @@ func (c *Cache) Get(pkg *packages.Package, mode HashMode, key string, data any) 
 		return fmt.Errorf("failed to calculate package %s action id: %w", pkg.Name, err)
 	}
 
+	log.Printf("[GLCI_DEBUG] ActionID %x, for package %s\n\n", actionID, pkg.PkgPath)
+
 	cachedData, err := c.getBytes(actionID)
 	if err != nil {
 		if cache.IsErrMissing(err) {
@@ -106,6 +109,8 @@ func (c *Cache) buildKey(pkg *packages.Package, mode HashMode, key string) (cach
 			return actionID, fmt.Errorf("failed to build subkey: %w", subkeyErr)
 		}
 
+		log.Printf("[GLCI_DEBUG] subkey %x, for package %s", subkey, pkg.PkgPath)
+
 		return subkey, nil
 	})
 }
@@ -116,6 +121,8 @@ func (c *Cache) pkgActionID(pkg *packages.Package, mode HashMode) (cache.ActionI
 		return cache.ActionID{}, fmt.Errorf("failed to get package hash: %w", err)
 	}
 
+	log.Printf("[GLCI_DEBUG] packageHash %s, for package %s", hash, pkg.PkgPath)
+
 	key, err := cache.NewHash("action ID")
 	if err != nil {
 		return cache.ActionID{}, fmt.Errorf("failed to make a hash: %w", err)
@@ -124,7 +131,10 @@ func (c *Cache) pkgActionID(pkg *packages.Package, mode HashMode) (cache.ActionI
 	fmt.Fprintf(key, "pkgpath %s\n", pkg.PkgPath)
 	fmt.Fprintf(key, "pkghash %s\n", hash)
 
-	return key.Sum(), nil
+	pkgKey := key.Sum()
+	log.Printf("[GLCI_DEBUG] pkgKey %x, for package %s", pkgKey, pkg.PkgPath)
+
+	return pkgKey, nil
 }
 
 func (c *Cache) packageHash(pkg *packages.Package, mode HashMode) (string, error) {
