@@ -15,12 +15,12 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/packages"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/golinters/internal"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/fsutils"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis"
+	"github.com/doitforme/golangci-lint/pkg/golinters/internal"
+	"github.com/doitforme/golangci-lint/pkg/lint/linter"
+	"github.com/doitforme/golangci-lint/pkg/result"
 )
 
 const linterName = "errcheck"

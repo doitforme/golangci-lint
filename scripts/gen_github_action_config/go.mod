@@ -1,4 +1,4 @@
-module github.com/golangci/golangci-lint/scripts/gen_github_action_config
+module github.com/doitforme/golangci-lint/scripts/gen_github_action_config
 
 go 1.23.0
 

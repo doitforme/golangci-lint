@@ -11,8 +11,8 @@ import (
 
 	"github.com/rogpeppe/go-internal/lockedfile"
 
-	"github.com/golangci/golangci-lint/scripts/website/github"
-	"github.com/golangci/golangci-lint/scripts/website/types"
+	"github.com/doitforme/golangci-lint/scripts/website/github"
+	"github.com/doitforme/golangci-lint/scripts/website/types"
 )
 
 func main() {

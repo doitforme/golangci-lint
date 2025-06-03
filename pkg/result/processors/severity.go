@@ -3,10 +3,10 @@ package processors
 import (
 	"cmp"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/fsutils"
+	"github.com/doitforme/golangci-lint/pkg/logutils"
+	"github.com/doitforme/golangci-lint/pkg/result"
 )
 
 const severityFromLinter = "@linter"

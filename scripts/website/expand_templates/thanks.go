@@ -6,9 +6,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/lint/lintersdb"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/lint/linter"
+	"github.com/doitforme/golangci-lint/pkg/lint/lintersdb"
 )
 
 type authorDetails struct {

@@ -59,7 +59,7 @@ If you value it, consider supporting us, we appreciate it! ❤️
 ### v1.64.2
 
 This is the last minor release of golangci-lint v1.
-The next release will be golangci-lint [v2](https://github.com/golangci/golangci-lint/issues/5300).
+The next release will be golangci-lint [v2](https://github.com/doitforme/golangci-lint/issues/5300).
 
 1. Enhancements
    * 🎉 go1.24 support
@@ -1735,7 +1735,7 @@ IMPORTANT: `varcheck` and `deadcode` has been removed of default linters.
 1. Support the newest `go vet` (with `go/analysis`)
 2. Support configuration of `go vet`: e.g. you can set print functions by `linters-settings.govet.settings.printf.funcs`
 3. Update megacheck (staticcheck) to 2019.1.1
-4. Add [information](https://github.com/golangci/golangci-lint#memory-usage-of-golangci-lint) about controlling space-time trade-off into README
+4. Add [information](https://github.com/doitforme/golangci-lint#memory-usage-of-golangci-lint) about controlling space-time trade-off into README
 5. Exclude issues by source code line regexp by `issues.exclude-rules[i].source`
 6. Build and test on go 1.12
 7. Support `--color` option

@@ -7,8 +7,8 @@ import (
 
 	"github.com/fatih/color"
 
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/doitforme/golangci-lint/pkg/logutils"
+	"github.com/doitforme/golangci-lint/pkg/result"
 )
 
 // Text prints issues with a human friendly representation.

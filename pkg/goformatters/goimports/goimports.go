@@ -3,7 +3,7 @@ package goimports
 import (
 	"golang.org/x/tools/imports"
 
-	"github.com/golangci/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/config"
 )
 
 const Name = "goimports"

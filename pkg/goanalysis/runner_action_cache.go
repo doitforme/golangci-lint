@@ -8,7 +8,7 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/types/objectpath"
 
-	"github.com/golangci/golangci-lint/internal/cache"
+	"github.com/doitforme/golangci-lint/internal/cache"
 )
 
 type Fact struct {

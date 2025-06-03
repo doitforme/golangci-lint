@@ -14,7 +14,8 @@ import "C"
 import (
 	"fmt"
 	"unsafe" // want "File is not properly formatted"
-	"github.com/golangci/golangci-lint/pkg/config"
+
+	"github.com/doitforme/golangci-lint/pkg/config"
 )
 
 func _() {

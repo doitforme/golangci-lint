@@ -4,8 +4,8 @@ import (
 	"github.com/ultraware/funlen"
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/goanalysis"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis"
 )
 
 type Config struct {

@@ -1421,7 +1421,7 @@
     "inPresets": [
       "style"
     ],
-    "originalURL": "https://github.com/golangci/golangci-lint/tree/HEAD/pkg/golinters/nolintlint/internal",
+    "originalURL": "https://github.com/doitforme/golangci-lint/tree/HEAD/pkg/golinters/nolintlint/internal",
     "internal": false,
     "canAutoFix": true,
     "isSlow": false,

@@ -6,9 +6,9 @@ import (
 	"golang.org/x/tools/go/packages"
 	"mvdan.cc/unparam/check"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis"
+	"github.com/doitforme/golangci-lint/pkg/lint/linter"
 )
 
 const linterName = "unparam"

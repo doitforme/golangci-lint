@@ -33,7 +33,7 @@
     },
     {
       "FromLinter": "goimports",
-      "Text": "File is not `goimports`-ed with -local github.com/golangci/golangci-lint",
+      "Text": "File is not `goimports`-ed with -local github.com/doitforme/golangci-lint",
       "Severity": "",
       "SourceLines": [
         ""

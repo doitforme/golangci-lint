@@ -16,11 +16,11 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/packages"
 
-	"github.com/golangci/golangci-lint/internal/cache"
-	"github.com/golangci/golangci-lint/internal/errorutil"
-	"github.com/golangci/golangci-lint/pkg/goanalysis/load"
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/timeutils"
+	"github.com/doitforme/golangci-lint/internal/cache"
+	"github.com/doitforme/golangci-lint/internal/errorutil"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis/load"
+	"github.com/doitforme/golangci-lint/pkg/logutils"
+	"github.com/doitforme/golangci-lint/pkg/timeutils"
 )
 
 var (

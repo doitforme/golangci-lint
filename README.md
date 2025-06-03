@@ -39,9 +39,9 @@ If you value it, consider supporting us, we appreciate it! :heart:
 
 ## Badges
 
-![Build Status](https://github.com/golangci/golangci-lint/workflows/CI/badge.svg)
+![Build Status](https://github.com/doitforme/golangci-lint/workflows/CI/badge.svg)
 [![License](https://img.shields.io/github/license/golangci/golangci-lint)](/LICENSE)
-[![Release](https://img.shields.io/github/release/golangci/golangci-lint.svg)](https://github.com/golangci/golangci-lint/releases/latest)
+[![Release](https://img.shields.io/github/release/golangci/golangci-lint.svg)](https://github.com/doitforme/golangci-lint/releases/latest)
 [![Docker](https://img.shields.io/docker/pulls/golangci/golangci-lint)](https://hub.docker.com/r/golangci/golangci-lint)
 [![GitHub Releases Stats of golangci-lint](https://img.shields.io/github/downloads/golangci/golangci-lint/total.svg?logo=github)](https://somsubhra.github.io/github-release-stats/?username=golangci&repository=golangci-lint)
 
@@ -49,7 +49,7 @@ If you value it, consider supporting us, we appreciate it! :heart:
 
 This project exists thanks to all the people who contribute. [How to contribute](https://golangci-lint.run/contributing/quick-start/).
 
-<a href="https://github.com/golangci/golangci-lint/graphs/contributors">
+<a href="https://github.com/doitforme/golangci-lint/graphs/contributors">
   <img src="https://opencollective.com/golangci-lint/contributors.svg?width=890&button=false&skip=golangcidev,CLAassistant,renovate,fossabot,golangcibot,kortschak,golangci-releaser,dependabot%5Bbot%5D" />
 </a>
 

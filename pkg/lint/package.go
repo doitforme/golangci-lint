@@ -14,12 +14,12 @@ import (
 	"github.com/ldez/grignotin/goenv"
 	"golang.org/x/tools/go/packages"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/exitcodes"
-	"github.com/golangci/golangci-lint/pkg/goanalysis/load"
-	"github.com/golangci/golangci-lint/pkg/goutil"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/exitcodes"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis/load"
+	"github.com/doitforme/golangci-lint/pkg/goutil"
+	"github.com/doitforme/golangci-lint/pkg/lint/linter"
+	"github.com/doitforme/golangci-lint/pkg/logutils"
 )
 
 // PackageLoader loads packages based on [golang.org/x/tools/go/packages.Load].
@@ -112,7 +112,7 @@ func (*PackageLoader) parseLoadedPackagesErrors(pkgs []*packages.Package) error 
 		for _, err := range pkg.Errors {
 			// quick fix: skip error related to `go list` invocation by packages.Load()
 			// The behavior has been changed between go1.19 and go1.20, the error is now inside the JSON content.
-			// https://github.com/golangci/golangci-lint/pull/3414#issuecomment-1364756303
+			// https://github.com/doitforme/golangci-lint/pull/3414#issuecomment-1364756303
 			if strings.Contains(err.Msg, "# command-line-arguments") {
 				continue
 			}

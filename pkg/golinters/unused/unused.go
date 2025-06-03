@@ -10,10 +10,10 @@ import (
 	"honnef.co/go/tools/analysis/lint"
 	"honnef.co/go/tools/unused"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis"
+	"github.com/doitforme/golangci-lint/pkg/lint/linter"
+	"github.com/doitforme/golangci-lint/pkg/result"
 )
 
 const linterName = "unused"
@@ -87,7 +87,7 @@ func getUnusedResults(pass *analysis.Pass, settings *config.UnusedSettings) unus
 	opts := unused.Options{
 		FieldWritesAreUses:     settings.FieldWritesAreUses,
 		PostStatementsAreReads: settings.PostStatementsAreReads,
-		// Related to https://github.com/golangci/golangci-lint/issues/4218
+		// Related to https://github.com/doitforme/golangci-lint/issues/4218
 		// https://github.com/dominikh/go-tools/issues/1474#issuecomment-1850760813
 		ExportedIsUsed:        true,
 		ExportedFieldsAreUsed: settings.ExportedFieldsAreUsed,

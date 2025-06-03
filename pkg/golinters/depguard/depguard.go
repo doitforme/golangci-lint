@@ -6,10 +6,10 @@ import (
 	"github.com/OpenPeeDeeP/depguard/v2"
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/golinters/internal"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis"
+	"github.com/doitforme/golangci-lint/pkg/golinters/internal"
+	"github.com/doitforme/golangci-lint/pkg/lint/linter"
 )
 
 func New(settings *config.DepGuardSettings, basePath string) *goanalysis.Linter {
@@ -30,7 +30,7 @@ func New(settings *config.DepGuardSettings, basePath string) *goanalysis.Linter 
 
 			// because of bug with Viper parsing (split on dot) we use a list of struct instead of a map.
 			// https://github.com/spf13/viper/issues/324
-			// https://github.com/golangci/golangci-lint/issues/3749#issuecomment-1492536630
+			// https://github.com/doitforme/golangci-lint/issues/3749#issuecomment-1492536630
 
 			deny := map[string]string{}
 			for _, r := range rule.Deny {

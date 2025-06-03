@@ -8,8 +8,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/doitforme/golangci-lint/pkg/logutils"
+	"github.com/doitforme/golangci-lint/pkg/result"
 )
 
 const (
@@ -112,7 +112,7 @@ func (p *GeneratedFileFilter) shouldPassIssue(issue *result.Issue) (bool, error)
 
 // isGeneratedFileLax reports whether the source file is generated code.
 // The function uses a bit laxer rules than isGeneratedFileStrict to match more generated code.
-// See https://github.com/golangci/golangci-lint/issues/48 and https://github.com/golangci/golangci-lint/issues/72.
+// See https://github.com/doitforme/golangci-lint/issues/48 and https:/github.com/doitforme/golangci-lintnt/issues/72.
 func (p *GeneratedFileFilter) isGeneratedFileLax(doc string) bool {
 	markers := []string{genCodeGenerated, genDoNotEdit, genAutoFile, genSwaggerCodegen}
 

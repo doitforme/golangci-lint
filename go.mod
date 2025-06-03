@@ -1,4 +1,4 @@
-module github.com/golangci/golangci-lint
+module github.com/doitforme/golangci-lint
 
 go 1.23.0
 

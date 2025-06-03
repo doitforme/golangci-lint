@@ -3,11 +3,11 @@ package goimports
 import (
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/goformatters"
-	goimportsbase "github.com/golangci/golangci-lint/pkg/goformatters/goimports"
-	"github.com/golangci/golangci-lint/pkg/golinters/internal"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis"
+	"github.com/doitforme/golangci-lint/pkg/goformatters"
+	goimportsbase "github.com/doitforme/golangci-lint/pkg/goformatters/goimports"
+	"github.com/doitforme/golangci-lint/pkg/golinters/internal"
 )
 
 const linterName = "goimports"

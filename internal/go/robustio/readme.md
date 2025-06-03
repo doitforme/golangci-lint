@@ -7,5 +7,5 @@ There is only one modification:
 
 ## History
 
-- https://github.com/golangci/golangci-lint/pull/5100
+- https://github.com/doitforme/golangci-lint/pull/5100
     - Move package from `internal/robustio` to `internal/go/robustio`

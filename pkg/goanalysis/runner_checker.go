@@ -18,9 +18,9 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/packages"
 
-	"github.com/golangci/golangci-lint/internal/x/tools/analysisflags"
-	"github.com/golangci/golangci-lint/internal/x/tools/analysisinternal"
-	"github.com/golangci/golangci-lint/pkg/goanalysis/pkgerrors"
+	"github.com/doitforme/golangci-lint/internal/x/tools/analysisflags"
+	"github.com/doitforme/golangci-lint/internal/x/tools/analysisinternal"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis/pkgerrors"
 )
 
 // NOTE(ldez) altered: custom fields; remove 'once' and 'duration'.

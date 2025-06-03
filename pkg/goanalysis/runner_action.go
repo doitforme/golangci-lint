@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"runtime/debug"
 
-	"github.com/golangci/golangci-lint/internal/errorutil"
+	"github.com/doitforme/golangci-lint/internal/errorutil"
 )
 
 type actionAllocator struct {

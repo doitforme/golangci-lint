@@ -3,11 +3,11 @@ package gofmt
 import (
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/goformatters"
-	gofmtbase "github.com/golangci/golangci-lint/pkg/goformatters/gofmt"
-	"github.com/golangci/golangci-lint/pkg/golinters/internal"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis"
+	"github.com/doitforme/golangci-lint/pkg/goformatters"
+	gofmtbase "github.com/doitforme/golangci-lint/pkg/goformatters/gofmt"
+	"github.com/doitforme/golangci-lint/pkg/golinters/internal"
 )
 
 const linterName = "gofmt"

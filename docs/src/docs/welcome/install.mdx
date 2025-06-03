@@ -10,13 +10,13 @@ It's important to have reproducible CI: don't start to fail all builds at the sa
 With golangci-lint this can happen if you use option `--enable-all` and a new linter is added
 or even without `--enable-all` when one upstream linter is upgraded.
 
-**IMPORTANT**: It's highly recommended installing a specific version of golangci-lint available on the [releases page](https://github.com/golangci/golangci-lint/releases).
+**IMPORTANT**: It's highly recommended installing a specific version of golangci-lint available on the [releases page](https://github.com/doitforme/golangci-lint/releases).
 
 ### GitHub Actions
 
-We recommend using [our GitHub Action](https://github.com/golangci/golangci-lint-action) for running `golangci-lint` in CI for GitHub projects.
+We recommend using [our GitHub Action](https://github.com/doitforme/golangci-lint-action) for running `golangci-lint` in CI for GitHub projects.
 
-It's [fast and uses smart caching](https://github.com/golangci/golangci-lint-action#performance) inside,
+It's [fast and uses smart caching](https://github.com/doitforme/golangci-lint-action#performance) inside,
 and it can be much faster than the simple binary installation.
 
 ![Log output of the action](./colored-line-number.png)
@@ -55,7 +55,7 @@ golangci-lint --version
 ```
 
 It is advised that you periodically update the version of `golangci-lint` as the project is under active development
-and is constantly being improved. For any problems with `golangci-lint`, check out recent [GitHub issues](https://github.com/golangci/golangci-lint/issues) and update if needed.
+and is constantly being improved. For any problems with `golangci-lint`, check out recent [GitHub issues](https://github.com/doitforme/golangci-lint/issues) and update if needed.
 
 ## Local Installation
 
@@ -161,7 +161,7 @@ These installations aren't recommended because of the following points:
 7. It's slower than binary installation.
 
 ```sh
-go install github.com/golangci/golangci-lint/cmd/golangci-lint@{.LatestVersion}
+go install github.com/doitforme/golangci-lint/cmd/golangci-lint@{.LatestVersion}
 ```
 
 ## Next

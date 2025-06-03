@@ -14,10 +14,10 @@ import (
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 
-	"github.com/golangci/golangci-lint/pkg/exitcodes"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/goutil"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/doitforme/golangci-lint/pkg/exitcodes"
+	"github.com/doitforme/golangci-lint/pkg/fsutils"
+	"github.com/doitforme/golangci-lint/pkg/goutil"
+	"github.com/doitforme/golangci-lint/pkg/logutils"
 )
 
 var errConfigDisabled = errors.New("config is disabled by --no-config")
@@ -400,7 +400,7 @@ func (l *Loader) handleDeprecation() error {
 
 func (l *Loader) handleLinterOptionDeprecations() {
 	// Deprecated since v1.57.0,
-	// but it was unofficially deprecated since v1.19 (2019) (https://github.com/golangci/golangci-lint/pull/697).
+	// but it was unofficially deprecated since v1.19 (2019) (https://github.com/doitforme/golangci-lint/pull/697).
 	if l.cfg.LintersSettings.Govet.CheckShadowing != nil {
 		l.log.Warnf("The configuration option `linters.govet.check-shadowing` is deprecated. " +
 			"Please enable `shadow` instead, if you are not using `enable-all`.")
@@ -417,7 +417,7 @@ func (l *Loader) handleLinterOptionDeprecations() {
 	}
 
 	// Deprecated since v1.59.0,
-	// but it was unofficially deprecated since v1.13 (2018) (https://github.com/golangci/golangci-lint/pull/332).
+	// but it was unofficially deprecated since v1.13 (2018) (https://github.com/doitforme/golangci-lint/pull/332).
 	if l.cfg.LintersSettings.Errcheck.Ignore != "" {
 		l.log.Warnf("The configuration option `linters.errcheck.ignore` is deprecated, please use `linters.errcheck.exclude-functions`.")
 	}

@@ -4,12 +4,12 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/golangci/golangci-lint/internal/cache"
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/exitcodes"
-	"github.com/golangci/golangci-lint/pkg/goanalysis/load"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/doitforme/golangci-lint/internal/cache"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/exitcodes"
+	"github.com/doitforme/golangci-lint/pkg/goanalysis/load"
+	"github.com/doitforme/golangci-lint/pkg/lint/linter"
+	"github.com/doitforme/golangci-lint/pkg/logutils"
 )
 
 type ContextBuilder struct {
@@ -47,7 +47,7 @@ func (cl *ContextBuilder) Build(ctx context.Context, log logutils.Log, linters [
 		Packages: deduplicatedPkgs,
 
 		// At least `unused` linters works properly only on original (not deduplicated) packages,
-		// see https://github.com/golangci/golangci-lint/pull/585.
+		// see https://github.com/doitforme/golangci-lint/pull/585.
 		OriginalPackages: pkgs,
 
 		Cfg:       cl.cfg,

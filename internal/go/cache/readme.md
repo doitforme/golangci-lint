@@ -12,9 +12,9 @@ The main modifications are:
 
 ## History
 
-- https://github.com/golangci/golangci-lint/pull/5100
+- https://github.com/doitforme/golangci-lint/pull/5100
   - Move package from `internal/cache` to `internal/go/cache`
-- https://github.com/golangci/golangci-lint/pull/5098
+- https://github.com/doitforme/golangci-lint/pull/5098
   - sync with go1.23.2
   - sync with go1.22.8
   - sync with go1.21.13
@@ -36,16 +36,16 @@ Based on the initial PR/commit the based in a mix between go1.12 and go1.13:
 - hash_test.go -> (go1.12?)
 
 Adapted for golangci-lint:
-- https://github.com/golangci/golangci-lint/pull/699: initial code (contains modifications of the files)
-- https://github.com/golangci/golangci-lint/pull/779: just a nolint (`cache.go`)
-- https://github.com/golangci/golangci-lint/pull/788: only directory permissions changes (0777 -> 0744) (`cache.go`, `cache_test.go`, `default.go`)
-- https://github.com/golangci/golangci-lint/pull/808: mainly related to logs and errors (`cache.go`, `default.go`, `hash.go`, `hash_test.go`)
-- https://github.com/golangci/golangci-lint/pull/1063: `ioutil` -> `robustio` (`cache.go`)
-- https://github.com/golangci/golangci-lint/pull/1070: add `t.Parallel()` inside `cache_test.go`
-- https://github.com/golangci/golangci-lint/pull/1162: errors inside `cache.go`
-- https://github.com/golangci/golangci-lint/pull/2318: `ioutil` -> `os` (`cache.go`, `cache_test.go`, `default.go`, `hash_test.go`)
-- https://github.com/golangci/golangci-lint/pull/2352: Go doc typos
-- https://github.com/golangci/golangci-lint/pull/3012: errors inside `cache.go` (`cache.go`, `default.go`)
-- https://github.com/golangci/golangci-lint/pull/3196: constant for `GOLANGCI_LINT_CACHE` (`cache.go`)
-- https://github.com/golangci/golangci-lint/pull/3204: add this file and `%w` in `fmt.Errorf` (`cache.go`)
-- https://github.com/golangci/golangci-lint/pull/3604: remove `github.com/pkg/errors` (`cache.go`)
+- https://github.com/doitforme/golangci-lint/pull/699: initial code (contains modifications of the files)
+- https://github.com/doitforme/golangci-lint/pull/779: just a nolint (`cache.go`)
+- https://github.com/doitforme/golangci-lint/pull/788: only directory permissions changes (0777 -> 0744) (`cache.go`, `cache_test.go`, `default.go`)
+- https://github.com/doitforme/golangci-lint/pull/808: mainly related to logs and errors (`cache.go`, `default.go`, `hash.go`, `hash_test.go`)
+- https://github.com/doitforme/golangci-lint/pull/1063: `ioutil` -> `robustio` (`cache.go`)
+- https://github.com/doitforme/golangci-lint/pull/1070: add `t.Parallel()` inside `cache_test.go`
+- https://github.com/doitforme/golangci-lint/pull/1162: errors inside `cache.go`
+- https://github.com/doitforme/golangci-lint/pull/2318: `ioutil` -> `os` (`cache.go`, `cache_test.go`, `default.go`, `hash_test.go`)
+- https://github.com/doitforme/golangci-lint/pull/2352: Go doc typos
+- https://github.com/doitforme/golangci-lint/pull/3012: errors inside `cache.go` (`cache.go`, `default.go`)
+- https://github.com/doitforme/golangci-lint/pull/3196: constant for `GOLANGCI_LINT_CACHE` (`cache.go`)
+- https://github.com/doitforme/golangci-lint/pull/3204: add this file and `%w` in `fmt.Errorf` (`cache.go`)
+- https://github.com/doitforme/golangci-lint/pull/3604: remove `github.com/pkg/errors` (`cache.go`)

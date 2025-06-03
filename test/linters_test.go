@@ -4,8 +4,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/golangci/golangci-lint/test/testshared"
-	"github.com/golangci/golangci-lint/test/testshared/integration"
+	"github.com/doitforme/golangci-lint/test/testshared"
+	"github.com/doitforme/golangci-lint/test/testshared/integration"
 )
 
 const testdataDir = "testdata"

@@ -31,7 +31,7 @@
     - label: "Performance"
       link: "/product/performance/"
     - label: "GitHub"
-      link: "https://github.com/golangci/golangci-lint"
+      link: "https://github.com/doitforme/golangci-lint"
 - label: Contributing
   items:
     - label: Quick Start

@@ -6,8 +6,8 @@ import (
 
 	"github.com/ldez/grignotin/goenv"
 
-	"github.com/golangci/golangci-lint/pkg/goutil"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/doitforme/golangci-lint/pkg/goutil"
+	"github.com/doitforme/golangci-lint/pkg/result"
 )
 
 var _ Processor = (*Cgo)(nil)

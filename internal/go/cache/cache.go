@@ -22,8 +22,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golangci/golangci-lint/internal/go/mmap"
-	"github.com/golangci/golangci-lint/internal/go/robustio"
+	"github.com/doitforme/golangci-lint/internal/go/mmap"
+	"github.com/doitforme/golangci-lint/internal/go/robustio"
 	"github.com/rogpeppe/go-internal/lockedfile"
 )
 

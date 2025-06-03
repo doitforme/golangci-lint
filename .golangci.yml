@@ -100,7 +100,7 @@ linters-settings:
       - pattern: 'interface{}'
         replacement: 'any'
   goimports:
-    local-prefixes: github.com/golangci/golangci-lint
+    local-prefixes: github.com/doitforme/golangci-lint
   mnd:
     # don't include the "operation" and "assign"
     checks:
@@ -119,10 +119,10 @@ linters-settings:
     settings:
       printf:
         funcs:
-          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Infof
-          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Warnf
-          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Errorf
-          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Fatalf
+          - (github.com/doitforme/golangci-lint/pkg/logutils.Log).Infof
+          - (github.com/doitforme/golangci-lint/pkg/logutils.Log).Warnf
+          - (github.com/doitforme/golangci-lint/pkg/logutils.Log).Errorf
+          - (github.com/doitforme/golangci-lint/pkg/logutils.Log).Fatalf
     enable:
       - nilness
       - shadow

@@ -13,17 +13,17 @@ import (
 	"os"
 	"slices"
 
-	"github.com/golangci/golangci-lint/internal/x/tools/diff"
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/goformatters"
-	"github.com/golangci/golangci-lint/pkg/goformatters/gci"
-	"github.com/golangci/golangci-lint/pkg/goformatters/gofmt"
-	"github.com/golangci/golangci-lint/pkg/goformatters/gofumpt"
-	"github.com/golangci/golangci-lint/pkg/goformatters/goimports"
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/result"
-	"github.com/golangci/golangci-lint/pkg/timeutils"
+	"github.com/doitforme/golangci-lint/internal/x/tools/diff"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/fsutils"
+	"github.com/doitforme/golangci-lint/pkg/goformatters"
+	"github.com/doitforme/golangci-lint/pkg/goformatters/gci"
+	"github.com/doitforme/golangci-lint/pkg/goformatters/gofmt"
+	"github.com/doitforme/golangci-lint/pkg/goformatters/gofumpt"
+	"github.com/doitforme/golangci-lint/pkg/goformatters/goimports"
+	"github.com/doitforme/golangci-lint/pkg/logutils"
+	"github.com/doitforme/golangci-lint/pkg/result"
+	"github.com/doitforme/golangci-lint/pkg/timeutils"
 )
 
 var _ Processor = (*Fixer)(nil)

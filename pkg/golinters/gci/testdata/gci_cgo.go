@@ -13,11 +13,13 @@ package testdata
 import "C"
 
 import (
-	"golang.org/x/tools/go/analysis" // want "File is not properly formatted"
-	"github.com/golangci/golangci-lint/pkg/config"
-	"fmt"
 	"errors"
+	"fmt"
+	"unsafe"
+
 	gcicfg "github.com/daixiang0/gci/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/config"
+	"golang.org/x/tools/go/analysis" // want "File is not properly formatted"
 )
 
 func _() {

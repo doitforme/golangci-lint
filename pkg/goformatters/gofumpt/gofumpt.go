@@ -5,7 +5,7 @@ import (
 
 	gofumpt "mvdan.cc/gofumpt/format"
 
-	"github.com/golangci/golangci-lint/pkg/config"
+	"github.com/doitforme/golangci-lint/pkg/config"
 )
 
 const Name = "gofumpt"
